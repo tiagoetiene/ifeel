@@ -1,14 +1,41 @@
 <head>
-  <title>ifeel</title>
+  <title> I feel ... </title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<h1>How are you feeling today?</h1>	
+			</div>
+		</div>
+	  {{> AddWordT}}
+	  {{> VisualSedimentationT}}
+	</div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="AddWordT">
+<div class="row">
+	<div class="col-md-5 text-right">
+		<h2> I feel ... </h2>
+	</div>
+  <div class="col-md-3 vertical-align">
+  	<form class="form-search">
+    <div class="input-group">
+      <input type="text" style="border-bottom:1px; border-bottom-style:solid " class="form-control search-query no-border no-shadow">
+      <span class="input-group-btn no-border">
+        <button class="btn btn-default no-border no-shadow" type="submit">[enter]</button>
+      </span>
+    </div>
+    </form>
+  </div>
+</div>
+</template>
+
+<template name="VisualSedimentationT">
+	<div class="row">
+		<div class="col-md-offset-3 col-md-6 col-md-offset-3">
+  		<div id="demo"></div>
+  	</div>
+  </div>
 </template>

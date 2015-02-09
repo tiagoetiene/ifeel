@@ -1,1 +1,13 @@
 /* CSS declarations go here */
+
+.vertical-align {
+  transform: translateY(60%);
+}
+
+.no-border {
+	 border-style: none;
+}
+
+.no-shadow {
+	 box-shadow: none;
+}
