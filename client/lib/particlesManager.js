@@ -1,6 +1,9 @@
 var particles = [];
 myEnqueue = function( p ) {
 	particles.push( p )
+	if( particles.length % 50 == 0 ) {
+		particles = _.shuffle( particles );
+	}
 }
 
 myPop = function() {
