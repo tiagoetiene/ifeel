@@ -6,12 +6,18 @@ function replace(text)
     }
 
 Template.IFeelT.helpers( {
-	"ifeel" : function() {
+	ifeel : function() {
 		var image = Session.get("Image");
-		console.log( image );
 		if( _.isUndefined( image ) ) {
 			return;
 		}
 		return replace( image.text );
+	},
+	ifeeldate : function() {
+		var image = Session.get("Image");
+		if( _.isUndefined( image ) ) {
+			return;
+		}
+		return moment(image.created_at).format('MMMM Do YYYY, h:mm:ss a'); new Date(  );
 	}
 } );

@@ -2,7 +2,7 @@ feelings = new Mongo.Collection( "feelings" );
 
 if (Meteor.isClient) {
 
-  var maxNumberOfContainers = 8;
+  var maxNumberOfContainers = 9;
   var backgroundPhotos = []
 
   function now() { return +(new Date()); }
@@ -104,8 +104,6 @@ if (Meteor.isClient) {
 
     backgroundPhotos = _.shuffle( backgroundPhotos );
 
-    console.log( backgroundPhotos );
-
     do {
       var image = backgroundPhotos.pop();
     } while( _.has( visitedURLs, image.url ) && backgroundPhotos.length > 0 );
@@ -128,10 +126,11 @@ if (Meteor.isClient) {
     _.each( entities.media, function( datum ) { 
       if( _.has( datum, "media_url" ) ) { 
           if( backgroundPhotos.length < 2000 ) {
-            console.log( "new photo" );
             backgroundPhotos.push( { 
             url : datum[ "media_url" ], 
-            text : tweet.text } );  
+            text : tweet.text,
+            created_at : tweet.created_at 
+          } );  
           }
       }
     } );
@@ -237,7 +236,7 @@ if (Meteor.isServer) {
       } );
 
       var query = {  $text : { $search : list }  };
-      var options = { expire : false, created_at : false };
+      var options = { expire : false };
       var cursor = feelings.find( query, options );
       console.log( "* terms", list, "/", cursor.count() );
       return cursor;
