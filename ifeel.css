@@ -43,8 +43,78 @@ blockquote p {
   display: inline;
 }
 
+.text-fade-out{
+
+    animation:text-fade-out 4.5s;
+    -webkit-animation:text-fade-out 4.5s;
+    animation-fill-mode: forwards;
+
+    animation-delay:2s;
+    -webkit-animation-delay:1s; /* Safari and Chrome */
+    -webkit-animation-fill-mode: forwards;
+
+} 
+
+@keyframes text-fade-out {
+    from {opacity :1;}
+    to {opacity :0.1;}
+}
+
+@-webkit-keyframes text-fade-out{
+    from {opacity :1;}
+    to {opacity :0.1;}
+}
+
+
+.defaultFont {
+	font-family:Times;color:white;font-size:2em;
+	height: 100%;
+}
+
+.centerAlign{
+    /*display : table-cell;
+    vertical-align : middle;
+    float:none;*/
+}
+
+/*
+ * Cover
+ */
+
+.cover {
+  padding: 0 20px;
+}
+.cover .btn-lg {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+}
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Padding for spacing */
+.inner {
+  padding: 30px;
+}
+
 .vertical-align {
-  transform: translateY(60%);
+  transform: translateY(20%);
 }
 
 .no-border {
@@ -71,5 +141,5 @@ blockquote p {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0,0,0,0.5); 
+	background-color: rgba(10,1,0,0.5); 
 }

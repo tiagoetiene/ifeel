@@ -45,8 +45,9 @@ if (Meteor.isClient) {
       strataArray.push( [ { initValue : 10 } ] );
     } ); 
 
+
     var settings = {
-      width:600,
+      width: parseInt( d3.select("#plotDiv").style('width') ) ,
       height:400,
       data:{
             model: list,
@@ -61,7 +62,7 @@ if (Meteor.isClient) {
         token:{
           size:{original:20,minimum:3}
         },
-        aggregation:{height:150},
+        aggregation:{height:300},
         suspension:{
           decay: { power : 1.005 }
         }
@@ -125,9 +126,8 @@ if (Meteor.isClient) {
     }
 
     _.each( entities.media, function( datum ) { 
-      if( _.has( datum, "media_url" ) && 
-          _.isEqual( datum[ "type" ], "photo" ) ) { 
-          if( backgroundPhotos.length < 1000 ) {
+      if( _.has( datum, "media_url" ) ) { 
+          if( backgroundPhotos.length < 2000 ) {
             console.log( "new photo" );
             backgroundPhotos.push( { 
             url : datum[ "media_url" ], 
@@ -136,6 +136,13 @@ if (Meteor.isClient) {
       }
     } );
   }
+
+  setInterval( function() {
+    var array = myPop();
+    _.each(array, function( p ) {
+      setTimeout( function() { scene.addToken( p ); }, rand() % 5000 );
+    } );
+  }, 5000 );
 
   function observeData() {
     var wordList = Session.get( "WordList" );
@@ -146,18 +153,16 @@ if (Meteor.isClient) {
           if( _.has( visited, id._str ) == true )
             return;
 
-          console.log( "new data" );
+          getBackgroundPhoto( tweet ); 
 
-          getBackgroundPhoto( tweet );
-
-          // console.log( tweet );
           visited[ id._str ] = true;
           var wordList = Session.get( "WordList" )
           var text = tweet.text.toLowerCase();
           _.each( wordList, function( word, idx ) {
             if( text.indexOf( word ) != -1 ) {
-                scene.addToken( { 
-                  size : 40 / maxNumberOfContainers, 
+
+                myEnqueue( {
+                  size : 60 / maxNumberOfContainers, 
                   category : idx, 
                 } );
             }
@@ -205,15 +210,37 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
+    terms = new Mongo.Collection( "commonTerms" );
 
     Meteor.publish( "feelings", function( words ) {
 
       var list = "";
-      _.each( words, function( word ) { list += word + " " } );
-      console.log( "* terms", list );
+      _.each( words, function( word ) { 
+        var query = {};
+        var modfiers = {};
+        var increment = {};
+        query[ word ] = { $exists : true } ;
+
+        var cursor = terms.find( query );
+        if( cursor.count() == 0 ) {
+          var term = {};
+          term[ word ] = 1;
+          terms.insert( term );
+        } else {
+          var array = cursor.fetch();
+          increment[ word ] = +1;
+          modfiers[ "$inc" ] = increment;
+          terms.update( { _id : array[ 0 ]._id }, modfiers );  
+        }
+
+        list += word + " ";
+      } );
+
       var query = {  $text : { $search : list }  };
       var options = { expire : false, created_at : false };
-      return feelings.find( query, options );
+      var cursor = feelings.find( query, options );
+      console.log( "* terms", list, "/", cursor.count() );
+      return cursor;
     } );
     // code to run on server at startup
   });

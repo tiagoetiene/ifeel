@@ -3,33 +3,37 @@
 </head>
 
 <body>
+
 	{{> BackgroundT}}
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 text-center">
-				<h1>How are you feeling today?</h1>	
+	<div class="site-wrapper" style="position:absolute;" >
+		<div class="site-wrapper-inner">
+			<div class="cover-container">
+				<div class="inner cover" style="color:#ddd;">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12 text-center">
+								<h1 class="text-fade-out">How are you feeling today?</h1>	
+								{{> AddWordT}}								
+								<br/> 
+							</div>
+						</div>
+						<div class="row">
+							{{> VisualSedimentationT}}
+							{{> IFeelT}}
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	  {{> AddWordT}}
-	  <hr> 
-	  {{> VisualSedimentationT}}
-	  {{> IFeelT}}
 	</div>
+
 </body>
 
 <template name="AddWordT">
 <div class="row">
-	<div class="col-md-5 text-right">
-		<h2> I feel ... </h2>
-	</div>
-  <div class="col-md-3 vertical-align">
+  <div class="col-md-offset-2 col-md-8">
   	<form class="form-search">
-    <div class="input-group">
-      <input type="text" style="border-bottom:1px; border-bottom-style:solid " class="form-control search-query no-border no-shadow">
-      <span class="input-group-btn no-border">
-        <button class="btn btn-default no-border no-shadow" type="submit">[enter]</button>
-      </span>
-    </div>
+			<input type="text" class="form-control search-query defaultFont text-center" placeholder="I feel ..." style="background-color:rgba(0,0,0,0.1); border-color:rgba(255,255,255,0.2);">
     </form>
   </div>
 </div>
@@ -37,7 +41,7 @@
 
 <template name="VisualSedimentationT">
 	<div class="row">
-		<div class="col-md-offset-3 col-md-6 col-md-offset-3">
+		<div class="col-md-offset-3 col-md-6 col-md-offset-3" id="plotDiv">
   		<div id="demo"></div>
   	</div>
   </div>
