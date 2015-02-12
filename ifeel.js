@@ -72,8 +72,8 @@ if (Meteor.isClient) {
       },
       chart:{
         x: 0,
-        y: 50,
-        height : 350,
+        y: 50, 
+        height : 400,
         type : "StackedAreaChart",
         wallColor : "rgba(230,230,230,0.5)",
         label : true,
