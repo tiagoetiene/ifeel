@@ -96,22 +96,15 @@ if (Meteor.isClient) {
 
   var visited = {};
 
-  var visitedURLs = {}
   setInterval( function() {
-    if( _.isEmpty( backgroundPhotos ) ) {
+    if( backgroundPhotos.length < 2 ) {
       return;
     }
 
     backgroundPhotos = _.shuffle( backgroundPhotos );
+    Session.set( "Image", backgroundPhotos.pop() );
 
-    do {
-      var image = backgroundPhotos.pop();
-    } while( _.has( visitedURLs, image.url ) && backgroundPhotos.length > 0 );
-    
-    visitedURLs[ image.url ] = true;
-    Session.set( "Image", image );
-
-  }, 14000 );
+  }, 20000 );
 
   function getBackgroundPhoto( tweet ) {
     var entities = tweet.entities;
