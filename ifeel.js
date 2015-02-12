@@ -122,7 +122,9 @@ if (Meteor.isClient) {
             backgroundPhotos.push( { 
             url : datum[ "media_url" ], 
             text : tweet.text,
-            created_at : tweet.created_at 
+            created_at : tweet.created_at,
+            screen_name : tweet.user.screen_name,
+            id_str : tweet.id_str
           } );  
           }
       }
