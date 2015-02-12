@@ -28,7 +28,7 @@ Template.IFeelT.helpers( {
 		if( _.isUndefined( image ) ) {
 			return;
 		}
-		var link = "https://twitter.com/" + image.screenName + "/status/" + image.id_str;
+		var link = "https://twitter.com/" + image.screen_name + "/status/" + image.id_str;
 		return link;
 	},
 	screenName : function() {
