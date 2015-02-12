@@ -2,7 +2,7 @@ feelings = new Mongo.Collection( "feelings" );
 
 if (Meteor.isClient) {
 
-  var maxNumberOfContainers = 9;
+  var maxNumberOfContainers = 7;
   var backgroundPhotos = []
 
   function now() { return +(new Date()); }
