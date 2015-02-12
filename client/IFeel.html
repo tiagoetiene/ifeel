@@ -1,10 +1,12 @@
 <template name="IFeelT">
-	<div class="row" style="height:300px">
+	<div class="row">
 		<div class="col-md-12 text-center">
-			<blockquote style="margin-bottom:0px">
-				<p>{{{ifeel}}}</p>
-			</blockquote>
-			{{{ifeeldate}}}
+			{{#if hasImage}}
+				<blockquote style="margin-bottom:0px">
+					<p>{{{ifeel}}}</p>
+				</blockquote>
+				<a href="{{tweetURL}}" target="_blank">{{screenName}}</a> on {{{ifeeldate}}}
+			{{/if}}
 		</div>
 	</div>
 </template>

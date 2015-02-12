@@ -6,11 +6,15 @@ function replace(text)
     }
 
 Template.IFeelT.helpers( {
+	hasImage : function() {
+		return _.isUndefined( Session.get("Image") ) == false;
+	},
 	ifeel : function() {
 		var image = Session.get("Image");
 		if( _.isUndefined( image ) ) {
 			return;
 		}
+		console.log( image.text, image.id_str ); 
 		return replace( image.text );
 	},
 	ifeeldate : function() {
@@ -19,5 +23,20 @@ Template.IFeelT.helpers( {
 			return;
 		}
 		return moment(image.created_at).format('MMMM Do YYYY, h:mm:ss a'); new Date(  );
+	},
+	tweetURL : function() {
+		var image = Session.get("Image");
+		if( _.isUndefined( image ) ) {
+			return;
+		}
+		var link = "https://twitter.com/" + image.screenName + "/status/" + image.id_str;
+		return link;
+	},
+	screenName : function() {
+		var image = Session.get("Image");
+		if( _.isUndefined( image ) ) {
+			return;
+		}
+		return "@" + image.screen_name;
 	}
 } );
