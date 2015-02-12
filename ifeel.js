@@ -47,7 +47,7 @@ if (Meteor.isClient) {
 
 
     var settings = {
-      width: parseInt( d3.select("#plotDiv").style('width') ) ,
+      width: (parseInt( d3.select("#plotDiv").style('width') ) - 30),
       height:400,
       data:{
             model: list,
