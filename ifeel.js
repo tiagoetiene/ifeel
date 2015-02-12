@@ -100,8 +100,6 @@ if (Meteor.isClient) {
     } );
   };
 
-  var visited = {};
-
   setInterval( function() {
     if( backgroundPhotos.length < 2 ) {
       return;
@@ -150,9 +148,6 @@ if (Meteor.isClient) {
       feelings.find({}).observeChanges( {
         added : function( id, tweet ) {
 
-          if( _.has( visited, id._str ) == true )
-            return;
-
           //
           // Twitter API appends RT @screen_name to retweets. So
           // in order to recover the original text, we need to
@@ -166,7 +161,6 @@ if (Meteor.isClient) {
 
           getBackgroundPhoto( tweet ); 
 
-          visited[ id._str ] = true;
           var wordList = Session.get( "WordList" )
           var text = tweet.text.toLowerCase();
           _.each( wordList, function( word, idx ) {
