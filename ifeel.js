@@ -121,10 +121,10 @@ if (Meteor.isClient) {
     }
 
     _.each( entities.media, function( datum ) { 
-      if( _.has( datum, "media_url" ) ) { 
+      if( _.has( datum, "media_url_https" ) ) { 
           if( backgroundPhotos.length < 2000 ) {
             backgroundPhotos.push( { 
-            url : datum[ "media_url" ], 
+            url : datum[ "media_url_https" ], 
             text : tweet.text,
             created_at : tweet.created_at,
             screen_name : tweet.user.screen_name,
