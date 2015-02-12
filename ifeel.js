@@ -46,15 +46,20 @@ if (Meteor.isClient) {
     } ); 
 
 
+    var divWidth = parseInt( d3.select("#plotDiv").style('width') ) - 30;
+    var viewportWidth = divWidth;
+    var chartX = 10;
+    var chartY = 50;
+    var chartWidth = viewportWidth - 2 * chartX;
     var settings = {
-      width: (parseInt( d3.select("#plotDiv").style('width') ) - 30),
-      height:400,
+      width  : viewportWidth,
+      height : 300,
       data:{
             model: list,
             strata: strataArray,
             stream:{
               provider:'tokens',
-              refresh:1000,
+              refresh: 10000,
               now : now()
             },
           },
@@ -62,7 +67,7 @@ if (Meteor.isClient) {
         token:{
           size:{original:20,minimum:3}
         },
-        aggregation:{height:300},
+        aggregation:{height:180},
         suspension:{
           decay: { power : 1.005 }
         }
@@ -71,9 +76,10 @@ if (Meteor.isClient) {
         layout:false
       },
       chart:{
-        x: 0,
-        y: 50, 
-        height : 400,
+        x: chartX,
+        y: chartY, 
+        height : 280,
+        width : chartWidth,
         type : "StackedAreaChart",
         wallColor : "rgba(230,230,230,0.5)",
         label : true,
@@ -183,11 +189,12 @@ if (Meteor.isClient) {
 
     var wordList = Session.get( "WordList" );
     var textNode = d3.select("svg").append("g").attr("id", "legend");
-    var textXDelta = settings.width / maxNumberOfContainers;
-    var textX = textXDelta * 0.5;
-    var textY = settings.chart.y - 30;
+    var textXDelta = settings.chart.width / maxNumberOfContainers;
+    var textX = settings.chart.x + textXDelta * 0.5;
+    var textYA = settings.chart.y - 30;
+    var textYB = settings.chart.y - 10;
 
-    _.each( wordList, function( word ) {
+    _.each( wordList, function( word, idx ) {
       textNode    
         .append("g")
         .append("text")
@@ -207,7 +214,12 @@ if (Meteor.isClient) {
           } );
           Session.set( "WordList", wordList );
         } )
-        .attr("transform", "translate(" + textX + "," + textY + ")");
+        .attr("transform", function() {
+          if( idx % 2 == 0 ) {
+            return "translate(" + textX + "," + textYA + ")" 
+          }
+          return "translate(" + textX + "," + textYB + ")" 
+        });
       textX += textXDelta;
     } );
   }
