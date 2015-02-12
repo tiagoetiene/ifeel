@@ -14,7 +14,6 @@ Template.IFeelT.helpers( {
 		if( _.isUndefined( image ) ) {
 			return;
 		}
-		console.log( image.text, image.id_str ); 
 		return replace( image.text );
 	},
 	ifeeldate : function() {
