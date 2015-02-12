@@ -154,7 +154,8 @@ if (Meteor.isClient) {
           // tweet.text
           //
           if( _.isUndefined( tweet.retweeted_status ) == false ) {
-            tweet.text = tweet.retweeted_status.text;
+            return;
+            // tweet.text = tweet.retweeted_status.text;
           }
 
           getBackgroundPhoto( tweet ); 
