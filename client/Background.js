@@ -1,5 +1,5 @@
 Template.BackgroundT.helpers( {
-	"background" : function() {
+	background : function() {
 		var image = Session.get("Image");
 		if( _.isUndefined( image ) )
 			return;
