@@ -147,6 +147,16 @@ if (Meteor.isClient) {
           if( _.has( visited, id._str ) == true )
             return;
 
+          //
+          // Twitter API appends RT @screen_name to retweets. So
+          // in order to recover the original text, we need to
+          // fetch tweet.retweeted_status.text, instead of
+          // tweet.text
+          //
+          if( _.isUndefined( tweet.retweeted_status ) == false ) {
+            tweet.text = tweet.retweeted_status.text;
+          }
+
           getBackgroundPhoto( tweet ); 
 
           visited[ id._str ] = true;
