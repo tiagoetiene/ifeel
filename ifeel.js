@@ -100,40 +100,27 @@ if (Meteor.isClient) {
     } );
   };
 
-  setInterval( function() {
-    if( backgroundPhotos.length < 2 ) {
-      return;
+  
+
+  var backgroundHandler;
+  function restartBackgroundLoop() {
+
+    if( _.isUndefined( backgroundHandler ) == false ) {
+      clearInterval( backgroundHandler );
     }
 
-    backgroundPhotos = _.shuffle( backgroundPhotos );
-    Session.set( "Image", backgroundPhotos.pop() );
+    backgroundHandler = setInterval( function() {
 
-  }, 20000 );
+      if( _.isEmpty( backgroundPhotos ) ) {
+        return;
+      } 
 
-  function getBackgroundPhoto( tweet ) {
-    var entities = tweet.entities;
-    if( _.isUndefined( entities ) ) {
-      return;
-    }
+      backgroundPhotos = _.shuffle( backgroundPhotos );
+      Session.set( "Image", backgroundPhotos.pop() );
 
-    if( _.isUndefined( entities.media ) ) {
-      return;
-    }
-
-    _.each( entities.media, function( datum ) { 
-      if( _.has( datum, "media_url_https" ) ) { 
-          if( backgroundPhotos.length < 2000 ) {
-            backgroundPhotos.push( { 
-            url : datum[ "media_url_https" ], 
-            text : tweet.text,
-            created_at : tweet.created_at,
-            screen_name : tweet.user.screen_name,
-            id_str : tweet.id_str
-          } );  
-          }
-      }
-    } );
+    }, 20000 ); 
   }
+  restartBackgroundLoop();
 
   setInterval( function() {
     var array = myPop();
@@ -149,27 +136,38 @@ if (Meteor.isClient) {
         added : function( id, tweet ) {
 
           //
-          // Twitter API appends RT @screen_name to retweets. So
-          // in order to recover the original text, we need to
-          // fetch tweet.retweeted_status.text, instead of
-          // tweet.text
+          // Twitter API appends RT @screen_name to retweets.
+          // We want to ignore those as they are repeated over
+          // and over as background
           //
           if( _.isUndefined( tweet.retweeted_status ) == false ) {
             return;
-            // tweet.text = tweet.retweeted_status.text;
           }
 
-          getBackgroundPhoto( tweet ); 
+          obj = buildBackgroundObject( tweet );
+          if( _.isEqual( obj.type, "photo" ) == true &&
+              backgroundPhotos.length < 3000 ) {
+              backgroundPhotos.push( obj )  ;
+          }
 
           var wordList = Session.get( "WordList" )
           var text = tweet.text.toLowerCase();
           _.each( wordList, function( word, idx ) {
             if( text.indexOf( word ) != -1 ) {
-
-                myEnqueue( {
-                  size : 60 / maxNumberOfContainers, 
-                  category : idx, 
-                } );
+              myEnqueue( {
+                tweet : tweet,
+                size : 60 / maxNumberOfContainers, 
+                category : idx, 
+                callback : {
+                  onclick : function( token ) {
+                    var obj = buildBackgroundObject( token.myobj.m_userData.tweet );
+                    Session.set( "Image", obj );
+                    restartBackgroundLoop();
+                  },
+                  mouseover : function( token ) {
+                  }
+                }
+              } );
             }
           } );
         }
@@ -217,7 +215,7 @@ if (Meteor.isClient) {
       textX += textXDelta;
     } );
   }
-
+ 
 }
 
 if (Meteor.isServer) {

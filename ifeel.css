@@ -132,7 +132,6 @@ blockquote p {
 	height: 100%;
 
 	-webkit-filter: blur(10px);
-  -moz-filter: blur(10px);
   -o-filter: blur(10px);
   -ms-filter: blur(10px);
   filter: blur(10px);
@@ -148,4 +147,12 @@ blockquote p {
 path {
   stroke-opacity : 0.9;
   fill-opacity : 0.9;
+}
+.token {
+
+}
+
+.token:hover {
+  stroke : "black";
+  stroke-width : "5px";
 }
