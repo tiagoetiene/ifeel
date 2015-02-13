@@ -58,9 +58,9 @@ if (Meteor.isClient) {
             model: list,
             strata: strataArray,
             stream:{
-              provider:'tokens',
+              provider:'none',
               refresh: 10000,
-              now : now()
+              now : 0
             },
           },
       sedimentation:{
