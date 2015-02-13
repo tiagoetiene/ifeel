@@ -6,33 +6,35 @@
 	<div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="aboutLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content modal-custom">
+	      
 	      <div class="modal-header">
-	        <h3 class="modal-title" id="aboutLabel">About</h3>
+	        <h3 class="modal-title" id="aboutLabel">{{i18n "about"}}</h3>
 	      </div>
+
 	      <div class="modal-body">
-	      	<h4>Background</h4>
-	      	<p>
-	        	<em>I Feel</em> is based on the amazing 2006 project <a href="http://www.number27.org/wefeelfine" target="_blank">We Feel Fine</a>, by <a href="http://www.number27.org/" target="_blank">Jonathas Harris</a>. Harris captures beautifully the state of mind of many people by searching the internet for feelings, especifically, blog posts with sentences starting with <em>I feel</em> and <em>I'm felling</em>. <em>We Feel Fine</em> shows a number of carefully crafted infographics and image compositions.
-	        	<em>We Feel Fine</em> has also inspired other similar projects.
-	        </p>
-	        <p>
-	        	<em>I Feel</em> applies the same idea in the Twitter era. The staggering number of users sharing their hearts on Twitter makes a project like this much faster to execute. Here we show what people are feeling in real-time. 
-	        </p>
-	        <h4>What are those bars and circles?</h4>
-	        <p>
-	        	To get started, you first must type-in a word that the completes the sentence "I feel ..." or "I'm feeling ...". We will show recent tweets of people describing similar feelings as you. Each circle is a tweet somebody just tweeted. Click on them to see what they are about. The tweets fall into one of the bars, and, from time to time, the circles are aggregated to the bar. When aggregation happens, the height of each bar changes. The higher the bar, the more tweets about that feeling. The shorter, less tweets. Each bar is associated with a word you typed-in. So if you type "Sad" (enter) and "Happy" (enter) you'll see how many people feel happy or sad at the moment. You can also click on the twitter handle of a particular user to see their message on the Twitter website.
-	        </p>
+
+	      	<!-- A brief history of the inspiration for the project -->
+	      	<h4>{{i18n "background.title"}}</h4>
+	      	{{{i18n "background.text"}}}
+
+	      	<!-- Quick explanation of what users see in their screen -->
+	        <h4>{{i18n "tutorial.title"}}</h4>
+	        {{{i18n "tutorial.text"}}}
+	        
+					<!-- Developed by Tiago Etiene blah blah -->
 	        <br>
 	        <p>
-	        	Developed by <a href="http://www.tiagoetiene.net" target="_blank">Tiago Etiene</a> | {{> TwitterT}} | <a href="mailto:tiago.etiene@gmail.com">tiago.etiene@gmail.com</a>
+	        {{{i18n "developedBy"}}} | {{> TwitterT}}
 	        </p>
 	        <p>
-	        Built using <a href="www.meteor.com" target="_blank">Meteor</a> | <a href="visualsedimentation.org" target="_blank">Visual Sedimentation</a> | <a href="www.d3.org" target="_blank">D3</a> | <a href="https://github.com/tiagoetiene/chom" target="_blank">chom</a>
+	        {{{i18n "builtWith"}}}
 	        </p>
+	        
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-default" data-dismiss="modal">{{i18n "close"}}</button>
 	      </div>
+
 	    </div>
 	  </div>
 	</div>

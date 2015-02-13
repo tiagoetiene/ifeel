@@ -51,7 +51,7 @@ blockquote p {
 }
 
 .modal-custom {
-  background-color: rgba(80,80,80, 0.9);
+  background-color: rgba(100,100,100, 0.9);
   color: white;
 }
 
@@ -159,12 +159,4 @@ blockquote p {
 path {
   stroke-opacity : 0.9;
   fill-opacity : 0.9;
-}
-.token {
-
-}
-
-.token:hover {
-  stroke : "black";
-  stroke-width : "5px";
 }

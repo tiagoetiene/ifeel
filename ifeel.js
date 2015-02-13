@@ -2,6 +2,8 @@ feelings = new Mongo.Collection( "feelings" );
 
 if (Meteor.isClient) {
 
+  configInternationalization();
+
   var maxNumberOfContainers = 7;
   var backgroundPhotos = []
 
