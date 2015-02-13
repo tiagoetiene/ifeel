@@ -3,6 +3,6 @@ Template.BackgroundT.helpers( {
 		var image = Session.get("Image");
 		if( _.isUndefined( image ) )
 			return;
-		return "background : url(" + image.url + ":large" + ") no-repeat; background-size:cover;";
+		return "background : url(" + image.url + ":medium" + ") no-repeat; background-size:cover;";
 	}
 } );
