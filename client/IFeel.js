@@ -2,7 +2,7 @@
 function replace(text)
     {
       var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-      return $.trim( text.replace(exp,"").replace(/^RT/, "") ); 
+      return $.trim( text.replace(exp,"") ); 
     }
 
 Template.IFeelT.helpers( {
