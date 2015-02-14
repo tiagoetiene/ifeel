@@ -222,7 +222,7 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    terms = new Mongo.Collection( "commonTerms" );
+    termsCollection = new Mongo.Collection( "commonTerms" );
 
     Meteor.publish( "feelings", function( words ) {
 
@@ -233,16 +233,16 @@ if (Meteor.isServer) {
         var increment = {};
         query[ word ] = { $exists : true } ;
 
-        var cursor = terms.find( query );
+        var cursor = termsCollection.find( query );
         if( cursor.count() == 0 ) {
           var term = {};
           term[ word ] = 1;
-          terms.insert( term );
+          termsCollection.insert( term );
         } else {
           var array = cursor.fetch();
           increment[ word ] = +1;
           modfiers[ "$inc" ] = increment;
-          terms.update( { _id : array[ 0 ]._id }, modfiers );  
+          termsCollection.update( { _id : array[ 0 ]._id }, modfiers );  
         }
 
         list += word + " ";
