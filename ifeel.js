@@ -251,7 +251,17 @@ if (Meteor.isServer) {
       } );
 
       var query = {  $text : { $search : list }  };
-      var options = { expire : false };
+      var options = {
+        fields : {
+          id_str : 1, 
+          text : 1,
+          created_at : 1,
+          "entities.user_mentions" : 1,
+          "user.id_str" : 1,
+          "user.profile_image_url_https" : 1,
+          "retweeted_status.id_str" : 1
+        }
+      };
       return feelings.find( query, options );
     } );
   });
