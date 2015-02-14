@@ -250,10 +250,7 @@ if (Meteor.isServer) {
 
       var query = {  $text : { $search : list }  };
       var options = { expire : false };
-      var cursor = feelings.find( query, options );
-      console.log( "* terms", list, "/", cursor.count() );
-      return cursor;
+      return feelings.find( query, options );
     } );
-    // code to run on server at startup
   });
 }
