@@ -20,15 +20,16 @@ if (Meteor.isClient) {
       evt.preventDefault();
 
       var wordList = Session.get( "WordList" );
-
-      if( wordList.length > maxNumberOfContainers )
-        return;
-
-      var newWord = template.find(".search-query").value;
-      if( _.contains( wordList, newWord.toLowerCase() ) == false ) {
-        wordList.push( newWord.toLowerCase() );
-        Session.set( "WordList", wordList );
-      }
+      var newWords = template.find(".search-query").value.split(/\s+/);
+      _.each( newWords, function( newWord ) {
+        var word = newWord.replace(",", "").trim();
+        if( wordList.length < maxNumberOfContainers ) {
+          if( _.contains( wordList, word.toLowerCase() ) == false ) {
+            wordList.push( word.toLowerCase() );
+            Session.set( "WordList", wordList );
+          }  
+        }
+      } );
     }
   } );
 
