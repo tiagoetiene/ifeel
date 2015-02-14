@@ -227,7 +227,7 @@ if (Meteor.isServer) {
   Meteor.startup(function () {
     termsCollection = new Mongo.Collection( "commonTerms" );
 
-    Meteor.publish( "feelings", function( words ) {
+    Meteor.publish( "feelings", function( words, lang ) {
 
       var list = "";
       _.each( words, function( word ) { 
@@ -251,7 +251,12 @@ if (Meteor.isServer) {
         list += word + " ";
       } );
 
-      var query = {  $text : { $search : list }  };
+      var query = {  
+        $text : { 
+          $search : list,
+          $language : "en"
+        }  
+      };
       var options = {
         fields : {
           id_str : 1, 
