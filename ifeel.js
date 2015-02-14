@@ -150,7 +150,7 @@ if (Meteor.isClient) {
 
           obj = buildBackgroundObject( tweet );
           if( _.isEqual( obj.type, "photo" ) == true &&
-              backgroundPhotos.length < 3000 ) {
+              backgroundPhotos.length < 1000 ) {
               backgroundPhotos.push( obj )  ;
           }
 
