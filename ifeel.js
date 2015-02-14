@@ -2,6 +2,8 @@ feelings = new Mongo.Collection( "feelings" );
 
 if (Meteor.isClient) {
 
+  Tracker.autorun( function() { document.title = i18n( "appName" ); } );
+
   configInternationalization();
 
   var maxNumberOfContainers = 7;
