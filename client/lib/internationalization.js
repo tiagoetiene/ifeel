@@ -37,7 +37,7 @@ var lang_pt_BR = {
 	language : "English",
 	appName : "Me Sinto",
 	headlineQuestion : "Como você se sente?",
-	searchBarPlaceholder : "Eu me sinto ...",
+	searchBarPlaceholder : "Eu me sinto",
 	about : "Sobre",
 	background : {
 		title : "História",
