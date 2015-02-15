@@ -2,21 +2,24 @@ configGetLanguage = function() {
 	return i18n.getLanguage();
 }
 
+var us_example = "beautiful, love, blessed, awesome, good, rich, lucky";
+var br_example = "linda, lindo, sozinha, sozinho, triste, feliz, amor";
 var lang_en_US = {
 	projectDescription : {
 		title : 'How are you feeling?',
 		text : '\
 		<p> \
-			<em>Me Sinto</em> visualizes people\'s feelings in real time. It is easy: \
-			just type in one or more feeling words and hit enter. You will see tweets \
-			of people sharing similar feelings, as they are tweeted. \
+			<em>Me Sinto</em> visualizes people\'s feelings in real time, as they are \
+			shared on Twitter. It is easy. \
+			Just type in one or more feeling words and hit enter. You will see tweets \
+			of people sharing similar feelings. \
 		</p>',
 		example : '\
 		<p> \
 			<a href="#" class="defaultFont" id="example" style="font-size:1em;"> \
-			Example: "beautiful, love, blessed, awesome, good, rich, lucky"</a> \
+			Example: ' + us_example + ' </a> \
 		</p>',
-		ex : "beautiful, love, blessed, awesome, good, rich, lucky",
+		ex : us_example
 	},
 	language : "Mudar para Português",
 	appName : "Me Sinto",
@@ -56,16 +59,16 @@ var lang_pt_BR = {
 		text : '\
 		<p> \
 			<em>Me Sinto</em> visualiza o sentimento que as pessoas expressam nas \
-			redes sociais em tempo real. É bem simples: \
-			digite uma ou mais palavas que descrevem um sentimento e pressione enter. \
+			redes sociais em tempo real. É bem simples. \
+			Digite uma ou mais palavas que descrevem um sentimento e pressione enter. \
 			Você verá tuítes de pessoas que compartilham sentimentos similares. \
 		</p>',
 		example : '\
 		<p> \
 			<a href="#" class="defaultFont" id="example" style="font-size:1em;"> \
-			Exemplo: <span id="query-example">"amor, só, feliz, triste"</span></a> \
+			Example: ' + br_example + ' </a> \
 		</p>',
-		ex : "amor, só, feliz, triste",
+		ex : br_example
 	},
 	language : "Switch to english",
 	appName : "Me Sinto",
