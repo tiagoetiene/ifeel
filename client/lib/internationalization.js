@@ -47,7 +47,7 @@ var lang_en_US = {
 	developedBy : 'Developed by <a href="http://www.tiagoetiene.net" target="_blank">Tiago Etiene</a> | <a href="mailto:tiago.etiene@gmail.com">tiago.etiene@gmail.com</a>',
 	builtWith : '\
 		<p>\
-			Construído usando <a href="www.meteor.com" target="_blank">Meteor</a> | <a href="visualsedimentation.org" target="_blank">Visual Sedimentation</a> | <a href="www.d3.org" target="_blank">D3</a> | <a href="https://github.com/tiagoetiene/chom" target="_blank">chom</a>\
+			Built with <a href="www.meteor.com" target="_blank">Meteor</a> | <a href="visualsedimentation.org" target="_blank">Visual Sedimentation</a> | <a href="www.d3.org" target="_blank">D3</a> | <a href="https://github.com/tiagoetiene/chom" target="_blank">chom</a>\
 		</p>',
 	close : "Close",
 	loading : "Loading tweets...",
