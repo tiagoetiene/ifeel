@@ -58,7 +58,7 @@ var lang_pt_BR = {
 		title : 'Como você se sente?',
 		text : '\
 		<p> \
-			<em>Me Sinto</em> visualiza o sentimento expressado nas \
+			<em>Me Sinto</em> visualiza o sentimento que as pessoas expressam nas \
 			redes sociais em tempo real. É bem simples. \
 			Digite uma ou mais palavas que descrevem um sentimento e pressione enter. \
 			Você verá tuítes de pessoas que compartilham sentimentos similares. \
