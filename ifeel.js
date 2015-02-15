@@ -17,14 +17,21 @@ if (Meteor.isClient) {
 
   configInternationalization();
 
-  maxNumberOfContainers = 7;
+  maxNumberOfContainers = 6;
   var backgroundPhotos = []
 
   function now() { return +(new Date()); }
   function rand() { return Math.round( Math.random() * 1000000 ); }
 
+  Session.set( "Counter 0", 0 );
+  Session.set( "Counter 1", 0 );
+  Session.set( "Counter 2", 0 );
+  Session.set( "Counter 3", 0 );
+  Session.set( "Counter 4", 0 );
+  Session.set( "Counter 5", 0 );
   Session.set( "Images", [] );
   Session.setDefault( "WordList", [] );
+  Session.setDefault( "WordCounter", [] );
 
   function buildPlot() {
 
@@ -121,7 +128,11 @@ if (Meteor.isClient) {
 
     var array = myPop();
     _.each(array, function( p ) {
-      setTimeout( function() { scene.addToken( p ); }, rand() % 5000 );
+      setTimeout( function() { 
+        var counterId = "Counter " + p.category;
+        Session.set( counterId, Session.get( counterId ) + 1 );
+        scene.addToken( p ); 
+      }, rand() % 5000 );
     } );
 
   }, 5000 );

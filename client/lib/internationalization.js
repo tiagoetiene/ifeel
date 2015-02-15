@@ -2,8 +2,8 @@ configGetLanguage = function() {
 	return i18n.getLanguage();
 }
 
-var us_example = "beautiful, love, blessed, awesome, good, rich, lucky";
-var br_example = "linda, lindo, sozinha, sozinho, triste, feliz, amor";
+var us_example = "beautiful, love, blessed, kind, good, free";
+var br_example = "linda, sozinha, sozinho, triste, feliz, amor";
 var lang_en_US = {
 	projectDescription : {
 		title : 'How are you feeling?',
@@ -55,10 +55,10 @@ var lang_en_US = {
 };
 var lang_pt_BR = {
 	projectDescription : {
-		title : 'Como você se ente?',
+		title : 'Como você se sente?',
 		text : '\
 		<p> \
-			<em>Me Sinto</em> visualiza o sentimento que as pessoas expressam nas \
+			<em>Me Sinto</em> visualiza o sentimento expressado nas \
 			redes sociais em tempo real. É bem simples. \
 			Digite uma ou mais palavas que descrevem um sentimento e pressione enter. \
 			Você verá tuítes de pessoas que compartilham sentimentos similares. \
