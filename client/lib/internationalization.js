@@ -66,7 +66,7 @@ var lang_pt_BR = {
 		example : '\
 		<p> \
 			<a href="#" class="defaultFont" id="example" style="font-size:1em;"> \
-			Example: ' + br_example + ' </a> \
+			Exemplo: ' + br_example + ' </a> \
 		</p>',
 		ex : br_example
 	},
