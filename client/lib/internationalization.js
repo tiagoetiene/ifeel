@@ -9,7 +9,7 @@ var lang_en_US = {
 		<p> \
 			<em>Me Sinto</em> visualizes people\'s feelings in real time. It is easy: \
 			just type in one or more feeling words and hit enter. You will see tweets \
-			of people sharing similar feelings as they are tweeted. \
+			of people sharing similar feelings, as they are tweeted. \
 		</p>',
 		example : '\
 		<p> \
