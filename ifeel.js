@@ -2,6 +2,16 @@ feelings = new Mongo.Collection( "feelings" );
 
 if (Meteor.isClient) {
 
+  var sub = Meteor.subscribe( "feelingsSmallSet", function onReady() {
+    var array = feelings.find().fetch();
+    Session.set("Tile0", array[0].user.profile_image_url_https );
+    Session.set("Tile1", array[1].user.profile_image_url_https );
+    Session.set("Tile2", array[2].user.profile_image_url_https );
+    Session.set("Tile3", array[3].user.profile_image_url_https );
+    console.log( array );
+    sub.stop();
+  } );
+
   Tracker.autorun( function() { document.title = i18n( "appName" ); } );
 
   configInternationalization();
@@ -226,6 +236,14 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
   Meteor.startup(function () {
     termsCollection = new Mongo.Collection( "commonTerms" );
+
+    Meteor.publish( "feelingsSmallSet", function( ) {
+      var options = { 
+        fields : { "user.profile_image_url_https" : 1 }, 
+        limit : 4
+      };
+      return feelings.find( { }, options );
+    } ); 
 
     Meteor.publish( "feelings", function( words, lang ) {
 
