@@ -1,0 +1,18 @@
+<template name="ChartT">
+	{{#if hasSelectedWords}}
+		
+			<div class="row"> {{> VisualSedimentationT}} </div>
+			<div class="row">{{> IFeelT}}</div>
+			<div class="col-sm-offset-3 col-sm-6" style="display:{{ProgressDisplay}}">
+				<br/>
+				<div class="progress">
+			  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:100%;">
+			    Loading Tweets...
+			  </div>
+			</div>
+		</div>
+		
+	{{else}}
+		{{> ProjectDescriptionT}}
+	{{/if}}
+</template>

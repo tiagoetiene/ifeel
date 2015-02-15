@@ -1,4 +1,7 @@
 Template.BackgroundT.helpers( {
+	hasLoadedData : function() {
+		return false;
+	},
 	background : function() {
 		var image = Session.get("Image");
 		if( _.isUndefined( image ) )

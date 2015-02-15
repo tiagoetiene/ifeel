@@ -3,6 +3,21 @@ configGetLanguage = function() {
 }
 
 var lang_en_US = {
+	projectDescription : {
+		title : 'How are you feeling?',
+		text : '\
+		<p> \
+			<em>Me Sinto</em> visualizes people\'s feelings in real time. It is easy: \
+			just type in one or more feeling words and hit enter. You will see tweets \
+			of people sharing similar feelings as they are tweeted. \
+		</p>',
+		example : '\
+		<p> \
+			<a href="#" class="defaultFont" id="example" style="font-size:1em;"> \
+			Example: "beautiful, love, blessed, awesome, good, rich, lucky"</a> \
+		</p>',
+		ex : "beautiful, love, blessed, awesome, good, rich, lucky",
+	},
 	language : "Mudar para Português",
 	appName : "Me Sinto",
 	headlineQuestion : "How are you feeling?",
@@ -10,7 +25,7 @@ var lang_en_US = {
 	about : "About",
 	background : {
 		title : "Background",
-		text : ' \
+		text : '\
 			<p> \
 				<em>Me Sinto</em> was based on the 2006 project <a href="http://www.number27.org/wefeelfine" target="_blank">We Feel Fine</a>, by <a href="http://www.number27.org/" target="_blank">Jonathas Harris</a>. Harris seizes the state of mind of people by searching the internet for feelings, specifically, blog posts with sentences starting with <em>I feel</em> and <em>I\'m felling</em>. <em>We Feel Fine</em> shows a number of carefully crafted infographics and beautiful image compositions. \
 				<em>We Feel Fine</em> has also inspired other similar projects.\
@@ -34,6 +49,22 @@ var lang_en_US = {
 	close : "Close"
 };
 var lang_pt_BR = {
+	projectDescription : {
+		title : 'Como você se ente?',
+		text : '\
+		<p> \
+			<em>Me Sinto</em> visualiza o sentimento que as pessoas expressam nas \
+			redes sociais em tempo real. É bem simples: \
+			digite uma ou mais palavas que descrevem um sentimento e pressione enter. \
+			Você verá tuítes de pessoas que compartilham sentimentos similares. \
+		</p>',
+		example : '\
+		<p> \
+			<a href="#" class="defaultFont" id="example" style="font-size:1em;"> \
+			Exemplo: <span id="query-example">"amor, só, feliz, triste"</span></a> \
+		</p>',
+		ex : "amor, só, feliz, triste",
+	},
 	language : "Switch to english",
 	appName : "Me Sinto",
 	headlineQuestion : "Como você se sente?",

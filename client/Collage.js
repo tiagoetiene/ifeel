@@ -6,6 +6,7 @@ function tile( url ) {
 }
 
 Template.CollageT.helpers( {
+	noWordList : function() { return _.isEmpty( Session.get("WordList") ); },
 	tile0 : function() { return tile( Session.get("Tile0") ); },
 	tile1 : function() { return tile( Session.get("Tile1") ); },
 	tile2 : function() { return tile( Session.get("Tile2") ); },

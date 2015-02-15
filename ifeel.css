@@ -81,7 +81,9 @@ blockquote p {
 
 
 .defaultFont {
-	font-family:Times;color:white;font-size:2em;
+	font-family:Times;
+  color:white;
+  font-size:2em;
 	height: 100%;
 }
 

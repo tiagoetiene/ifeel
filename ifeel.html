@@ -4,7 +4,6 @@
 </head>
 
 <body>
-
 	{{> BackgroundT}}
 	<div class="site-wrapper" style="position:absolute;" >
 		<div class="site-wrapper-inner">
@@ -14,15 +13,12 @@
 						<div class="row">
 							<div class="col-md-12 text-center">
 								<h1 class="text-fade-out"> {{i18n "headlineQuestion"}}</h1>	
-								{{> AddWordT}}								
+								{{> SearchBoxT}}								
 								<br/> 
 							</div>
 						</div>
-						<div class="row"> {{> VisualSedimentationT}} </div>
-						<div class="row">{{> IFeelT}}</div>
-						
-						{{> AboutT}}						
-
+						{{> ChartT}}
+						{{> AboutT}}
 					</div>
 				</div>
 			</div>
@@ -30,16 +26,6 @@
 	</div>
 	{{> AboutButtonT}}
 </body>
-
-<template name="AddWordT">
-<div class="row">
-  <div class="col-md-offset-2 col-md-8">
-  	<form class="form-search">
-			<input type="text" class="form-control search-query defaultFont text-center" placeholder={{i18n "searchBarPlaceholder"}} style="background-color:rgba(0,0,0,0.1); border-color:rgba(255,255,255,0.2);">
-    </form>
-  </div>
-</div>
-</template>
 
 <template name="VisualSedimentationT">
 	<div class="row">
