@@ -147,6 +147,8 @@ blockquote p {
   -o-filter: blur(20px);
   -ms-filter: blur(20px);
   filter: blur(20px); 
+
+  -webkit-transform: translate3d(0, 0, 0);
 }
 
 .background-image {
@@ -158,6 +160,8 @@ blockquote p {
   -o-filter: blur(10px);
   -ms-filter: blur(10px);
   filter: blur(10px); 
+
+  -webkit-transform: translate3d(0, 0, 0);
 }
 
 .white-image {
