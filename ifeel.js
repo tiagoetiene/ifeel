@@ -239,7 +239,7 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    termsCollection = new Mongo.Collection( "commonTerms" );
+    var termsCollection = new Mongo.Collection( "commonTerms" );
 
     Meteor.publish( "feelingsSmallSet", function( ) {
       var options = { 
