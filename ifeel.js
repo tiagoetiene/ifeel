@@ -131,7 +131,6 @@ if (Meteor.isClient) {
 
     Session.set( "DataIsReady", false );
     Meteor.subscribe( "feelings", wordList, function() {
-      console.log( "here..." );
       Session.set( "DataIsReady", true );
       feelings.find({}).observeChanges( {
         added : function( id, tweet ) {
