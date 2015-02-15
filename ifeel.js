@@ -150,6 +150,10 @@ if (Meteor.isClient) {
       feelings.find({}).observeChanges( {
         added : function( id, tweet ) {
 
+          if( _.size( tweet ) == 1 ) {
+            return;
+          }
+
           //
           // Twitter API appends RT @screen_name to retweets.
           // We want to ignore those as they are repeated over
