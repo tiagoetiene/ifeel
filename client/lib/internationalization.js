@@ -3,7 +3,7 @@ configGetLanguage = function() {
 }
 
 var lang_en_US = {
-	language : "Português",
+	language : "Mudar para Português",
 	appName : "Me Sinto",
 	headlineQuestion : "How are you feeling?",
 	searchBarPlaceholder : "I Feel",
@@ -34,7 +34,7 @@ var lang_en_US = {
 	close : "Close"
 };
 var lang_pt_BR = {
-	language : "English",
+	language : "Switch to english",
 	appName : "Me Sinto",
 	headlineQuestion : "Como você se sente?",
 	searchBarPlaceholder : "Eu me sinto",
