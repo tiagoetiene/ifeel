@@ -140,15 +140,22 @@ blockquote p {
 	 box-shadow: none;
 }
 
-.backgroud-image {
+.blurMe {
+  -webkit-filter: blur(20px);
+  -o-filter: blur(20px);
+  -ms-filter: blur(20px);
+  filter: blur(20px); 
+}
+
+.background-image {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 
-	-webkit-filter: blur(10px);
+  -webkit-filter: blur(10px);
   -o-filter: blur(10px);
   -ms-filter: blur(10px);
-  filter: blur(10px);
+  filter: blur(10px); 
 }
 
 .white-image {
@@ -156,6 +163,17 @@ blockquote p {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(10,1,0,0.5); 
+}
+
+.wholescreen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.halfscreen {
+  /*position: relative;*/
+  /*width: 50%;*/
+  height: 50%;
 }
 
 path {
