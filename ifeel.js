@@ -109,7 +109,7 @@ if (Meteor.isClient) {
 
 
   Template.BodyT.rendered = function() {
-    $LAB.script( "https://s7.addthis.com/js/250/addthis_widget.js" ).wait();
+    // $LAB.script( "https://s7.addthis.com/js/250/addthis_widget.js" ).wait();
   }
 
   Template.VisualSedimentationT.rendered = function() {
