@@ -2,8 +2,8 @@ configGetLanguage = function() {
 	return i18n.getLanguage();
 }
 
-var us_example = "beautiful, love, blessed, kind, good, free";
-var br_example = "linda, sozinha, sozinho, triste, feliz, amor";
+var us_example = "beautiful, love, blessed, kind, guilty, free";
+var br_example = "feliz, amor, linda, lindo, culpada, culpado";
 var lang_en_US = {
 	projectDescription : {
 		title : 'How are you feeling?',
