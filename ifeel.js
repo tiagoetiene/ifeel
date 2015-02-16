@@ -16,14 +16,14 @@ if (Meteor.isClient) {
 
   var scene;
 
-  var sub = Meteor.subscribe( "feelingsSmallSet", function onReady() {
-    var array = feelings.find().fetch();
-    Session.set("Tile0", array[0].user.profile_image_url_https );
-    Session.set("Tile1", array[1].user.profile_image_url_https );
-    Session.set("Tile2", array[2].user.profile_image_url_https );
-    Session.set("Tile3", array[3].user.profile_image_url_https );
-    sub.stop();
-  } );
+  // var sub = Meteor.subscribe( "feelingsSmallSet", function onReady() {
+  //   var array = feelings.find().fetch();
+  //   Session.set("Tile0", array[0].user.profile_image_url_https );
+  //   Session.set("Tile1", array[1].user.profile_image_url_https );
+  //   Session.set("Tile2", array[2].user.profile_image_url_https );
+  //   Session.set("Tile3", array[3].user.profile_image_url_https );
+  //   sub.stop();
+  // } );
 
   Tracker.autorun( function() { document.title = i18n( "appName" ); } );
 
