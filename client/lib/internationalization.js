@@ -107,6 +107,8 @@ configInternationalization = function() {
 	i18n.map('en', lang_en_US);
 	i18n.map('pt', lang_pt_BR);
 	i18n.map('pt-br', lang_pt_BR);
+	i18n.map('pt_br', lang_pt_BR);
+	i18n.map('pt_BR', lang_pt_BR);
 
 	currentLanguage = navigator.language.toLowerCase()
 	i18n.setLanguage( currentLanguage );
