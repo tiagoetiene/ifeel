@@ -1,5 +1,17 @@
 feelings = new Mongo.Collection( "feelings" );
 
+
+
+addthis_share = {
+   url: "http://www.mesinto.net",
+   title: "Me Sinto"
+}
+
+addthis_config = {
+  pubid: "ra-54e10de11e511825"
+
+}
+
 if (Meteor.isClient) {
 
   var scene;
@@ -93,6 +105,11 @@ if (Meteor.isClient) {
     scene = $("#vs").vs(settings).data('visualSedimentation');  
 
   } 
+
+
+  Template.BodyT.rendered = function() {
+    $LAB.script( "http://s7.addthis.com/js/250/addthis_widget.js" ).wait();
+  }
 
   Template.VisualSedimentationT.rendered = function() {
     buildPlot();

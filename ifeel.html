@@ -1,33 +1,35 @@
 <head>
 	<meta charset="utf-8">
   <title> Eu Sinto </title>
-
-  	<!-- Go to www.addthis.com/dashboard to customize your tools -->
-	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54e10de11e511825" async="async"></script>
 </head>
 
-<body>
+<template name="BodyT">
 	{{> BackgroundT}}
-	<div class="site-wrapper" style="position:absolute;" >
-		<div class="site-wrapper-inner">
-			<div class="cover-container">
-				<div class="inner cover" style="color:#ddd;">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12 text-center">
-								<h1 class="text-fade-out"> {{i18n "headlineQuestion"}}</h1>	
-								{{> SearchBoxT}}								
-								<br/> 
+		<div class="site-wrapper" style="position:absolute;" >
+			<div class="site-wrapper-inner">
+				<div class="cover-container">
+					<div class="inner cover" style="color:#ddd;">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12 text-center">
+									<h1 class="text-fade-out"> {{i18n "headlineQuestion"}}</h1>	
+									{{> SearchBoxT}}								
+									<br/> 
+								</div>
 							</div>
+							{{> ChartT}}
+							{{> AboutT}}
 						</div>
-						{{> ChartT}}
-						{{> AboutT}}
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	{{> AboutButtonT}}
+		{{> AboutButtonT}}
+
+</template>
+
+<body>
+{{> BodyT}}
 </body>
 
 <template name="VisualSedimentationT">
