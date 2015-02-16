@@ -31,6 +31,7 @@ if (Meteor.isClient) {
 
   maxNumberOfContainers = 6;
   var backgroundPhotos = []
+  var backgroundProfile = []
 
   function now() { return +(new Date()); }
   function rand() { return Math.round( Math.random() * 1000000 ); }
@@ -127,11 +128,15 @@ if (Meteor.isClient) {
     backgroundHandler = setInterval( function() {
 
       if( _.isEmpty( backgroundPhotos ) ) {
-        return;
-      } 
-
-      backgroundPhotos = _.shuffle( backgroundPhotos );
-      Session.set( "Image", backgroundPhotos.pop() );
+        if( _.isEmpty( backgroundProfile ) ) {
+          return
+        }
+        backgroundProfile = _.shuffle( backgroundProfile );
+        Session.set( "Image", backgroundProfile.pop() );
+      } else {
+        backgroundPhotos = _.shuffle( backgroundPhotos );
+        Session.set( "Image", backgroundPhotos.pop() );
+      }
 
     }, 20000 ); 
   }
@@ -177,6 +182,13 @@ if (Meteor.isClient) {
           }
 
           obj = buildBackgroundObject( tweet );
+
+          if( _.isEqual( obj.type, "photo" ) == false &&
+            backgroundProfile.length < 1000 ) {
+            backgroundProfile.push( obj );
+          }
+          
+
           if( _.isEqual( obj.type, "photo" ) == true &&
               backgroundPhotos.length < 1000 ) {
               backgroundPhotos.push( obj )  ;
