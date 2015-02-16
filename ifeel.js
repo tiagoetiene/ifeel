@@ -194,6 +194,7 @@ if (Meteor.isClient) {
               backgroundPhotos.push( obj )  ;
           }
 
+          allowChangesToBackground = true;
           var wordList = Session.get( "WordList" )
           var text = tweet.text.toLowerCase();
           _.each( wordList, function( word, idx ) {
@@ -207,8 +208,19 @@ if (Meteor.isClient) {
                     var obj = buildBackgroundObject( token.myobj.m_userData.tweet );
                     Session.set( "Image", obj );
                     restartBackgroundLoop();
+                    allowChangesToBackground = false;
+                    setTimeout( function() { 
+                      allowChangesToBackground = true; 
+                    }, 3000 )
                   },
                   mouseover : function( token ) {
+                    console.log( allowChangesToBackground )
+                    if( allowChangesToBackground == false ) {
+                      return;
+                    }
+                    var obj = buildBackgroundObject( token.myobj.m_userData.tweet );
+                    Session.set( "Image", obj );
+                    restartBackgroundLoop();
                   }
                 }
               } );
