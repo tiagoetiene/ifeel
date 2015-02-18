@@ -214,7 +214,6 @@ if (Meteor.isClient) {
                     }, 3000 )
                   },
                   mouseover : function( token ) {
-                    console.log( allowChangesToBackground )
                     if( allowChangesToBackground == false ) {
                       return;
                     }
@@ -322,7 +321,6 @@ if (Meteor.isServer) {
           text : 1,
           created_at : 1,
           "entities.media" : 1,
-          "user.id_str" : 1,
           "user.screen_name" : 1,
           "user.profile_image_url_https" : 1,
           "retweeted_status.id_str" : 1
