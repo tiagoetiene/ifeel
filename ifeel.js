@@ -177,7 +177,7 @@ if (Meteor.isClient) {
           // We want to ignore those as they are repeated over
           // and over as background
           //
-          if( _.isEmpty( tweet.retweeted_status ) == true ) {
+          if( _.isEmpty( tweet.retweeted_status ) == false ) {
             return;
           }
 
