@@ -3,9 +3,12 @@
       evt.preventDefault();
 
       var wordList = Session.get( "WordList" );
-      var newWords = template.find(".search-query").value.split(/\s+/);
+      var newWords = template.find(".search-query")
+                             .value
+                             .replace(/,/g, " ")
+                             .split(/\s+/);
       _.each( newWords, function( newWord ) {
-        var word = newWord.replace(",", "").trim();
+        var word = newWord.trim();
         if( wordList.length < maxNumberOfContainers ) {
           if( _.contains( wordList, word.toLowerCase() ) == false ) {
             wordList.push( word.toLowerCase() );
