@@ -10,7 +10,8 @@ var lang_en_US = {
 		text : '\
 		<p> \
 			<em>Me Sinto</em> visualizes people\'s feelings in real time, as they are \
-			shared on Twitter. It is easy. \
+			shared on Twitter. We look for all tweets containing the words "I feel" or \
+			"I\'m feeling" and show them here. It is easy to get started. \
 			Just type in one or more feeling words and hit enter. You will see tweets \
 			of people sharing similar feelings. \
 		</p>',
@@ -59,7 +60,9 @@ var lang_pt_BR = {
 		text : '\
 		<p> \
 			<em>Me Sinto</em> visualiza o sentimento que as pessoas expressam nas \
-			redes sociais em tempo real. É bem simples. \
+			redes sociais em tempo real. Nós observamos todos os tuítes que contém as \
+			palavras "Eu me sinto" ou "Estou me sentindo" e os mostramos para você. \
+			O site é bem fácil de usar. \
 			Digite uma ou mais palavas que descrevem um sentimento e pressione enter. \
 			Você verá tuítes de pessoas que compartilham sentimentos similares. \
 		</p>',
