@@ -21,7 +21,7 @@ var lang_en_US = {
 		</p>',
 		ex : us_example
 	},
-	language : "Mudar para Português",
+	language : "Mudar para português",
 	appName : "Me Sinto",
 	headlineQuestion : "How are you feeling?",
 	searchBarPlaceholder : "I Feel",
