@@ -159,6 +159,35 @@ if (Meteor.isClient) {
 
   }, 5000 );
 
+  function hasFeelings( text ) {
+    var words = text.toLowerCase().split(" ");
+    var wordList = Session.get( "WordList" );
+    var feelIndex = -1;
+    for( var i = 0; i < words.length; ++i ) {
+      if( words[ i ].indexOf( "feel" ) != -1 ) {
+        feelIndex = i;
+        break;
+      }
+    }
+    if( feelIndex == -1 ) {
+      return false;
+    }
+
+    var found = false;
+    for( var i = feelIndex + 1; i <= feelIndex + 4; ++i ) {
+      if( i >= words.length ) {
+        break;
+      }
+      for( var j = 0; j < wordList.length; ++j ) {
+        if( words[ i ].indexOf( wordList[ j ] ) != -1 ) {
+          found = true;
+          break;
+        }
+      }
+    }
+    return found;
+  }
+
   function observeData() {
     var wordList = Session.get( "WordList" );
 
@@ -178,6 +207,10 @@ if (Meteor.isClient) {
           // and over as background
           //
           if( _.isEmpty( tweet.retweeted_status ) == false ) {
+            return;
+          }
+
+          if( hasFeelings( tweet.text ) == false ) {
             return;
           }
 
