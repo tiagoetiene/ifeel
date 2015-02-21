@@ -164,7 +164,8 @@ if (Meteor.isClient) {
     var wordList = Session.get( "WordList" );
     var feelIndex = -1;
     for( var i = 0; i < words.length; ++i ) {
-      if( words[ i ].indexOf( "feel" ) != -1 ) {
+      if( words[ i ].indexOf( "feel" ) != -1 ||
+          words[ i ].indexOf( "sent" ) != -1 ) {
         feelIndex = i;
         break;
       }
